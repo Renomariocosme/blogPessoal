@@ -29,6 +29,10 @@ public class UsuarioController {
 	
 	@Autowired
 	private UsuarioService usuarioService;
+	
+	
+	
+	
 
 	@PostMapping("/logar")
 	public ResponseEntity<UserLogin> Autentication (@RequestBody Optional<UserLogin> user){
