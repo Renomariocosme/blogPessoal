@@ -23,9 +23,14 @@ public class Postagem {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 
-	@NotNull
-	@Size(min = 5, max = 100)
-	private String descricao;
+	@NotNull(message = "O atributo texto é obrigatório!")
+	@Size(min = 5, max = 1000, message = "O atributo textoo deve ter no mínimo 5 e no máximo 1000 caracteres")
+	private String texto;
+	
+	@NotNull(message = "O atributo título é obrigatório!")
+	@Size(min = 5, max = 100, message = "O atributo título deve ter no mínimo 5 e no máximo 100 caracteres")
+	private String titulo;
+	
 
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date date = new java.sql.Date(System.currentTimeMillis());
@@ -40,13 +45,21 @@ public class Postagem {
 	private Usuario usuario;
 	
 
-	
-	public String getDescricao() {
-		return descricao;
+
+	public String getTexto() {
+		return texto;
 	}
 
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
+	public void setTexto(String texto) {
+		this.texto = texto;
+	}
+
+	public String getTitulo() {
+		return titulo;
+	}
+
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
 	}
 
 	public Usuario getUsuario() {
